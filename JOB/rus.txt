@@ -1,0 +1,25 @@
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(19) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "MAX_PLAYERS"
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(150) : îøèáêà 010: íåâåðíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(152) : îøèáêà 010: íåâåðíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(154) : îøèáêà 001: îæèäàëñÿ òîêåí ";", íî íàéäåí "-integer value-"
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(155) : îøèáêà 010: íåâåðíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(158) : îøèáêà 021: èäåíòèôèêàòîð "destroyayam" óæå îáúÿâëåí
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(162) : îøèáêà 010: íåâåðíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(165) : îøèáêà 021: èäåíòèôèêàòîð "destroyayam" óæå îáúÿâëåí
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(169) : îøèáêà 010: íåâåðíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(172) : îøèáêà 021: èäåíòèôèêàòîð "destroyayam" óæå îáúÿâëåí
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(176) : îøèáêà 010: íåâåðíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(179) : îøèáêà 021: èäåíòèôèêàòîð "destroyayam" óæå îáúÿâëåí
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(184) : îøèáêà 010: íåâåðíàÿ ôóíêöèÿ èëè îáúÿâëåíèå
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(206) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "IsPlayerConnected"
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(233) : ïðåäóïðåæäåíèå 215: âûðàæåíèå íå èìååò ýôôåêòà
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(233) : îøèáêà 001: îæèäàëñÿ òîêåí ";", íî íàéäåí "]"
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(233) : îøèáêà 029: íåïðàâèëüíîå âûðàæåíèå, ïðèíÿò íîëü
+c:\new greenwich project\New_folder\gamemodes\JOB\TUKANGAYAM.pwn(233) : ôàòàëüíàÿ îøèáêà 107: ñëèøêîì ìíîãî îøèáîê íà îäíîé ñòðîêå
+
+Êîìïèëÿöèÿ îñòàíîâëåíà.
+
+Pawn compiler 3.2.3664	 	 	Copyright (c) 1997-2016, ITB CompuPhase
+
+
+Îøèáîê:17.
