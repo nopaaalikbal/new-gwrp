@@ -14,6 +14,31 @@ CMD:nikahan(playerid, params[])
     }
     return 1;
 }
+// CMD:fly(playerid, params[])
+// {
+//     usefly[playerid] = !usefly[playerid];
+// 	SuccesMsg(playerid, "Fly mode berhasil");
+//     return 1;
+// }
+CMD:flymode(playerid, params[])
+{
+	if(pData[playerid][pAdmin] < 2)
+		return Error(playerid, "kamu bukan admin");
+	
+	SuccesMsg(playerid, "Fly mode berhasil");
+    if(fly[playerid])
+	{
+	    fly[playerid] = false;
+	    ClearAnimations(playerid);
+	}
+	else
+	{
+	    fly[playerid] = true;
+	    ClearAnimations(playerid);
+		ApplyAnimation(playerid, "PARACHUTE", "FALL_SKYDIVE", 4.0, 1, 0, 0, 1, 0, 1);
+	}
+    return 1;
+}
 
 CMD:respawnfaction(playerid, params[])
 {

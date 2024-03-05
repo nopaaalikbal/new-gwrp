@@ -1,6 +1,6 @@
 //OX target system
-new PlayerText:OXtdpasive[MAX_PLAYERS][2];
-new PlayerText:OXtdactive[MAX_PLAYERS][8];
+new Text: ox_active[4];
+new Text: ox_pasive[2];
 //OX target system
 //factionlist
 new PlayerText:factionListTD[MAX_PLAYERS][10];
@@ -182,149 +182,72 @@ new PlayerText:DeathTD[MAX_PLAYERS][8];
 new PlayerText: PomTD[MAX_PLAYERS][26];
 CreatePlayerTextDraws(playerid)
 {
-	//OX target system
-	//ox pasive
-	OXtdpasive[playerid][0] = CreatePlayerTextDraw(playerid, 307.000000, 205.000000, "ld_beat:chit");
-	PlayerTextDrawFont(playerid, OXtdpasive[playerid][0], 4);
-	PlayerTextDrawLetterSize(playerid, OXtdpasive[playerid][0], 0.600000, 2.000000);
-	PlayerTextDrawTextSize(playerid, OXtdpasive[playerid][0], 30.500000, 9.000000);
-	PlayerTextDrawSetOutline(playerid, OXtdpasive[playerid][0], 1);
-	PlayerTextDrawSetShadow(playerid, OXtdpasive[playerid][0], 0);
-	PlayerTextDrawAlignment(playerid, OXtdpasive[playerid][0], 1);
-	PlayerTextDrawColor(playerid, OXtdpasive[playerid][0], 1687547277);
-	PlayerTextDrawBackgroundColor(playerid, OXtdpasive[playerid][0], 255);
-	PlayerTextDrawBoxColor(playerid, OXtdpasive[playerid][0], 50);
-	PlayerTextDrawUseBox(playerid, OXtdpasive[playerid][0], 1);
-	PlayerTextDrawSetProportional(playerid, OXtdpasive[playerid][0], 1);
-	PlayerTextDrawSetSelectable(playerid, OXtdpasive[playerid][0], 1);
+	//ox system start//
+	ox_pasive[0] = TextDrawCreate(290.000, 206.000, "LD_BEAT:chit");
+	TextDrawTextSize(ox_pasive[0], 46.000, 28.000);
+	TextDrawAlignment(ox_pasive[0], 1);
+	TextDrawColor(ox_pasive[0], -1684300966);
+	TextDrawSetShadow(ox_pasive[0], 0);
+	TextDrawSetOutline(ox_pasive[0], 0);
+	TextDrawBackgroundColor(ox_pasive[0], 255);
+	TextDrawFont(ox_pasive[0], 4);
+	TextDrawSetProportional(ox_pasive[0], 1);
 
-	OXtdpasive[playerid][1] = CreatePlayerTextDraw(playerid, 315.000000, 208.000000, "ld_beat:chit");
-	PlayerTextDrawFont(playerid, OXtdpasive[playerid][1], 4);
-	PlayerTextDrawLetterSize(playerid, OXtdpasive[playerid][1], 0.600000, 2.000000);
-	PlayerTextDrawTextSize(playerid, OXtdpasive[playerid][1], 15.500000, 3.000000);
-	PlayerTextDrawSetOutline(playerid, OXtdpasive[playerid][1], 1);
-	PlayerTextDrawSetShadow(playerid, OXtdpasive[playerid][1], 0);
-	PlayerTextDrawAlignment(playerid, OXtdpasive[playerid][1], 1);
-	PlayerTextDrawColor(playerid, OXtdpasive[playerid][1], -116);
-	PlayerTextDrawBackgroundColor(playerid, OXtdpasive[playerid][1], 255);
-	PlayerTextDrawBoxColor(playerid, OXtdpasive[playerid][1], 50);
-	PlayerTextDrawUseBox(playerid, OXtdpasive[playerid][1], 1);
-	PlayerTextDrawSetProportional(playerid, OXtdpasive[playerid][1], 1);
-	PlayerTextDrawSetSelectable(playerid, OXtdpasive[playerid][1], 0);
+	ox_active[0] = TextDrawCreate(290.000, 206.000, "LD_BEAT:chit");
+	TextDrawTextSize(ox_active[0], 46.000, 28.000);
+	TextDrawAlignment(ox_active[0], 1);
+	TextDrawColor(ox_active[0], -1684300966);
+	TextDrawSetShadow(ox_active[0], 0);
+	TextDrawSetOutline(ox_active[0], 0);
+	TextDrawBackgroundColor(ox_active[0], 255);
+	TextDrawFont(ox_active[0], 4);
+	TextDrawSetProportional(ox_active[0], 1);
 
-	//ox active
-	OXtdactive[playerid][0] = CreatePlayerTextDraw(playerid, 307.000000, 205.000000, "ld_beat:chit");
-	PlayerTextDrawFont(playerid, OXtdactive[playerid][0], 4);
-	PlayerTextDrawLetterSize(playerid, OXtdactive[playerid][0], 0.600000, 2.000000);
-	PlayerTextDrawTextSize(playerid, OXtdactive[playerid][0], 30.500000, 9.000000);
-	PlayerTextDrawSetOutline(playerid, OXtdactive[playerid][0], 1);
-	PlayerTextDrawSetShadow(playerid, OXtdactive[playerid][0], 0);
-	PlayerTextDrawAlignment(playerid, OXtdactive[playerid][0], 1);
-	PlayerTextDrawColor(playerid, OXtdactive[playerid][0], 1687547277);
-	PlayerTextDrawBackgroundColor(playerid, OXtdactive[playerid][0], 255);
-	PlayerTextDrawBoxColor(playerid, OXtdactive[playerid][0], 50);
-	PlayerTextDrawUseBox(playerid, OXtdactive[playerid][0], 1);
-	PlayerTextDrawSetProportional(playerid, OXtdactive[playerid][0], 1);
-	PlayerTextDrawSetSelectable(playerid, OXtdactive[playerid][0], 1);
+	ox_active[1] = TextDrawCreate(306.000, 211.000, "LD_BEAT:cring");
+	TextDrawTextSize(ox_active[1], 14.000, 17.000);
+	TextDrawAlignment(ox_active[1], 1);
+	TextDrawColor(ox_active[1], 1582855167);
+	TextDrawSetShadow(ox_active[1], 0);
+	TextDrawSetOutline(ox_active[1], 0);
+	TextDrawBackgroundColor(ox_active[1], 255);
+	TextDrawFont(ox_active[1], 4);
+	TextDrawSetProportional(ox_active[1], 1);
+	TextDrawSetSelectable(ox_active[1], 1);
 
-	OXtdactive[playerid][1] = CreatePlayerTextDraw(playerid, 337.000000, 209.000000, "ld_bum:blkdot");
-	PlayerTextDrawFont(playerid, OXtdactive[playerid][1], 4);
-	PlayerTextDrawLetterSize(playerid, OXtdactive[playerid][1], 0.600000, 2.000000);
-	PlayerTextDrawTextSize(playerid, OXtdactive[playerid][1], 39.500000, 1.500000);
-	PlayerTextDrawSetOutline(playerid, OXtdactive[playerid][1], 1);
-	PlayerTextDrawSetShadow(playerid, OXtdactive[playerid][1], 0);
-	PlayerTextDrawAlignment(playerid, OXtdactive[playerid][1], 1);
-	PlayerTextDrawColor(playerid, OXtdactive[playerid][1], 255);
-	PlayerTextDrawBackgroundColor(playerid, OXtdactive[playerid][1], 255);
-	PlayerTextDrawBoxColor(playerid, OXtdactive[playerid][1], 50);
-	PlayerTextDrawUseBox(playerid, OXtdactive[playerid][1], 1);
-	PlayerTextDrawSetProportional(playerid, OXtdactive[playerid][1], 1);
-	PlayerTextDrawSetSelectable(playerid, OXtdactive[playerid][1], 0);
+	ox_active[2] = TextDrawCreate(342.000, 208.000, "LD_SPAC:white");
+	TextDrawTextSize(ox_active[2], 90.000, 25.000);
+	TextDrawAlignment(ox_active[2], 1);
+	TextDrawColor(ox_active[2], 1515561266);
+	TextDrawSetShadow(ox_active[2], 0);
+	TextDrawSetOutline(ox_active[2], 0);
+	TextDrawBackgroundColor(ox_active[2], 255);
+	TextDrawFont(ox_active[2], 4);
+	TextDrawSetProportional(ox_active[2], 1);
 
-	OXtdactive[playerid][2] = CreatePlayerTextDraw(playerid, 315.000000, 208.000000, "ld_beat:chit");
-	PlayerTextDrawFont(playerid, OXtdactive[playerid][2], 4);
-	PlayerTextDrawLetterSize(playerid, OXtdactive[playerid][2], 0.600000, 2.000000);
-	PlayerTextDrawTextSize(playerid, OXtdactive[playerid][2], 15.500000, 3.000000);
-	PlayerTextDrawSetOutline(playerid, OXtdactive[playerid][2], 1);
-	PlayerTextDrawSetShadow(playerid, OXtdactive[playerid][2], 0);
-	PlayerTextDrawAlignment(playerid, OXtdactive[playerid][2], 1);
-	PlayerTextDrawColor(playerid, OXtdactive[playerid][2], -116);
-	PlayerTextDrawBackgroundColor(playerid, OXtdactive[playerid][2], 255);
-	PlayerTextDrawBoxColor(playerid, OXtdactive[playerid][2], 50);
-	PlayerTextDrawUseBox(playerid, OXtdactive[playerid][2], 1);
-	PlayerTextDrawSetProportional(playerid, OXtdactive[playerid][2], 1);
-	PlayerTextDrawSetSelectable(playerid, OXtdactive[playerid][2], 0);
+	ox_active[3] = TextDrawCreate(346.000, 216.000, "ACTION");
+	TextDrawLetterSize(ox_active[3], 0.188, 0.898);
+	TextDrawTextSize(ox_active[3], 428.000, 15.000);
+	TextDrawAlignment(ox_active[3], 1);
+	TextDrawColor(ox_active[3], -1);
+	TextDrawSetShadow(ox_active[3], 0);
+	TextDrawSetOutline(ox_active[3], 1);
+	TextDrawBackgroundColor(ox_active[3], 255);
+	TextDrawFont(ox_active[3], 1);
+	TextDrawSetProportional(ox_active[3], 1);
+	TextDrawSetSelectable(ox_active[3], 1);
 
-	OXtdactive[playerid][3] = CreatePlayerTextDraw(playerid, 376.000000, 197.000000, "ld_bum:blkdot");
-	PlayerTextDrawFont(playerid, OXtdactive[playerid][3], 4);
-	PlayerTextDrawLetterSize(playerid, OXtdactive[playerid][3], 0.600000, 2.000000);
-	PlayerTextDrawTextSize(playerid, OXtdactive[playerid][3], 0.500000, 12.000000);
-	PlayerTextDrawSetOutline(playerid, OXtdactive[playerid][3], 1);
-	PlayerTextDrawSetShadow(playerid, OXtdactive[playerid][3], 0);
-	PlayerTextDrawAlignment(playerid, OXtdactive[playerid][3], 1);
-	PlayerTextDrawColor(playerid, OXtdactive[playerid][3], 255);
-	PlayerTextDrawBackgroundColor(playerid, OXtdactive[playerid][3], 255);
-	PlayerTextDrawBoxColor(playerid, OXtdactive[playerid][3], 50);
-	PlayerTextDrawUseBox(playerid, OXtdactive[playerid][3], 1);
-	PlayerTextDrawSetProportional(playerid, OXtdactive[playerid][3], 1);
-	PlayerTextDrawSetSelectable(playerid, OXtdactive[playerid][3], 0);
+	ox_pasive[1] = TextDrawCreate(306.000, 211.000, "LD_BEAT:cring");
+	TextDrawTextSize(ox_pasive[1], 14.000, 17.000);
+	TextDrawAlignment(ox_pasive[1], 1);
+	TextDrawColor(ox_pasive[1], 1582855167);
+	TextDrawSetShadow(ox_pasive[1], 0);
+	TextDrawSetOutline(ox_pasive[1], 0);
+	TextDrawBackgroundColor(ox_pasive[1], 255);
+	TextDrawFont(ox_pasive[1], 4);
+	TextDrawSetProportional(ox_pasive[1], 1);
+	TextDrawSetSelectable(ox_pasive[1], 1);
 
-	OXtdactive[playerid][4] = CreatePlayerTextDraw(playerid, 375.000000, 197.000000, "ld_bum:blkdot");
-	PlayerTextDrawFont(playerid, OXtdactive[playerid][4], 4);
-	PlayerTextDrawLetterSize(playerid, OXtdactive[playerid][4], 0.600000, 2.000000);
-	PlayerTextDrawTextSize(playerid, OXtdactive[playerid][4], 13.500000, 1.000000);
-	PlayerTextDrawSetOutline(playerid, OXtdactive[playerid][4], 1);
-	PlayerTextDrawSetShadow(playerid, OXtdactive[playerid][4], 0);
-	PlayerTextDrawAlignment(playerid, OXtdactive[playerid][4], 1);
-	PlayerTextDrawColor(playerid, OXtdactive[playerid][4], 255);
-	PlayerTextDrawBackgroundColor(playerid, OXtdactive[playerid][4], 255);
-	PlayerTextDrawBoxColor(playerid, OXtdactive[playerid][4], 50);
-	PlayerTextDrawUseBox(playerid, OXtdactive[playerid][4], 1);
-	PlayerTextDrawSetProportional(playerid, OXtdactive[playerid][4], 1);
-	PlayerTextDrawSetSelectable(playerid, OXtdactive[playerid][4], 0);
-
-	OXtdactive[playerid][5] = CreatePlayerTextDraw(playerid, 388.000000, 184.000000, "ld_bum:blkdot");
-	PlayerTextDrawFont(playerid, OXtdactive[playerid][5], 4);
-	PlayerTextDrawLetterSize(playerid, OXtdactive[playerid][5], 0.600000, 2.000000);
-	PlayerTextDrawTextSize(playerid, OXtdactive[playerid][5], 149.000000, 27.000000);
-	PlayerTextDrawSetOutline(playerid, OXtdactive[playerid][5], 1);
-	PlayerTextDrawSetShadow(playerid, OXtdactive[playerid][5], 0);
-	PlayerTextDrawAlignment(playerid, OXtdactive[playerid][5], 1);
-	PlayerTextDrawColor(playerid, OXtdactive[playerid][5], 1687547391);
-	PlayerTextDrawBackgroundColor(playerid, OXtdactive[playerid][5], 255);
-	PlayerTextDrawBoxColor(playerid, OXtdactive[playerid][5], 50);
-	PlayerTextDrawUseBox(playerid, OXtdactive[playerid][5], 1);
-	PlayerTextDrawSetProportional(playerid, OXtdactive[playerid][5], 1);
-	PlayerTextDrawSetSelectable(playerid, OXtdactive[playerid][5], 1);
-
-	OXtdactive[playerid][6] = CreatePlayerTextDraw(playerid, 390.000000, 187.000000, "ld_dual:white");
-	PlayerTextDrawFont(playerid, OXtdactive[playerid][6], 4);
-	PlayerTextDrawLetterSize(playerid, OXtdactive[playerid][6], 0.600000, 2.000000);
-	PlayerTextDrawTextSize(playerid, OXtdactive[playerid][6], 145.000000, 21.000000);
-	PlayerTextDrawSetOutline(playerid, OXtdactive[playerid][6], 1);
-	PlayerTextDrawSetShadow(playerid, OXtdactive[playerid][6], 0);
-	PlayerTextDrawAlignment(playerid, OXtdactive[playerid][6], 1);
-	PlayerTextDrawColor(playerid, OXtdactive[playerid][6], 1296911871);
-	PlayerTextDrawBackgroundColor(playerid, OXtdactive[playerid][6], 255);
-	PlayerTextDrawBoxColor(playerid, OXtdactive[playerid][6], 50);
-	PlayerTextDrawUseBox(playerid, OXtdactive[playerid][6], 1);
-	PlayerTextDrawSetProportional(playerid, OXtdactive[playerid][6], 1);
-	PlayerTextDrawSetSelectable(playerid, OXtdactive[playerid][6], 0);
-
-	OXtdactive[playerid][7] = CreatePlayerTextDraw(playerid, 462.000000, 192.000000, "Memotong Kayu");
-	PlayerTextDrawFont(playerid, OXtdactive[playerid][7], 1);
-	PlayerTextDrawLetterSize(playerid, OXtdactive[playerid][7], 0.250000, 1.050000);
-	PlayerTextDrawTextSize(playerid, OXtdactive[playerid][7], 494.000000, 139.000000);
-	PlayerTextDrawSetOutline(playerid, OXtdactive[playerid][7], 1);
-	PlayerTextDrawSetShadow(playerid, OXtdactive[playerid][7], 0);
-	PlayerTextDrawAlignment(playerid, OXtdactive[playerid][7], 2);
-	PlayerTextDrawColor(playerid, OXtdactive[playerid][7], -1);
-	PlayerTextDrawBackgroundColor(playerid, OXtdactive[playerid][7], 255);
-	PlayerTextDrawBoxColor(playerid, OXtdactive[playerid][7], 50);
-	PlayerTextDrawUseBox(playerid, OXtdactive[playerid][7], 1);
-	PlayerTextDrawSetProportional(playerid, OXtdactive[playerid][7], 1);
-	PlayerTextDrawSetSelectable(playerid, OXtdactive[playerid][7], 0);
-	//OX target system
+	//ox system end//
 	//FactionList
 	factionListTD[playerid][0] = CreatePlayerTextDraw(playerid, 119.000000, 414.000000, "hud:radar_gangN");
 	PlayerTextDrawFont(playerid, factionListTD[playerid][0], 4);

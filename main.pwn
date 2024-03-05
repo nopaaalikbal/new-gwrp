@@ -33,8 +33,13 @@
 #define MAX_AUCTIONS    10
 //-----[ Modular ]-----
 #include "DATA\DEFINE.pwn"
+#define VELOCITY_MULT	(3.0)
+#define VELOCITY_NORM	(1.0)
+#define HEIGHT_GAIN		(0.5)
 //#include "DATA\GPS.pwn"
 //BAJU SYSTEM
+new fly[MAX_PLAYERS];
+new usefly[MAX_PLAYERS];
 new delaykargo;
 new robmobil;
 new Text3D:teksrob[MAX_PLAYERS];
@@ -1799,7 +1804,7 @@ public OnGameModeInit()
 	mysql_tquery(g_SQL, "SELECT * FROM `familys`", "LoadFamilys");
 	mysql_tquery(g_SQL, "SELECT * FROM `houses`", "LoadHouses");
 	mysql_tquery(g_SQL, "SELECT * FROM `bisnis`", "LoadBisnis");
-	mysql_tquery(g_SQL, "SELECT * FROM `lockers`", "LoadLockers");
+	// mysql_tquery(g_SQL, "SELECT * FROM `lockers`", "LoadLockers");
 	mysql_tquery(g_SQL, "SELECT * FROM `gstations`", "LoadGStations");
 	mysql_tquery(g_SQL, "SELECT * FROM `atms`", "LoadATM");
 	mysql_tquery(g_SQL, "SELECT * FROM `gates`", "LoadGates");
@@ -3187,6 +3192,7 @@ public OnPlayerRequestSpawn(playerid)
 
 public OnPlayerDeath(playerid, killerid, reason)
 {
+	fly[playerid] = false;
 	if(killerid != INVALID_PLAYER_ID)
 	{
 		new reasontext[526];
@@ -4986,186 +4992,159 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 	{
 	    if(IsPlayerInRangeOfPoint(playerid, 3, 494.4636,1293.1964,10.0437))
         {
-        	callcmd::kerjaminyak1(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 3, 498.3599,1296.6460,10.0437))
         {
-        	callcmd::kerjaminyak2(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 3, 498.3147,1301.6930,10.0437))
         {
-        	callcmd::kerjaminyak2(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 3, 570.088989,1219.789794,11.711267))
         {
-        	callcmd::saringminyak(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
-	}
-	if(newkeys & KEY_WALK)
-	{
-	    if(IsPlayerInRangeOfPoint(playerid, 3, -887.2399,-479.9101,826.8417))
+		else if(IsPlayerInRangeOfPoint(playerid, 3, 2351.77,-653.31,128.05)) //creategun
         {
-        	callcmd::ambilbox(playerid, "");
+			SelectTextDraw(playerid, 0x00FFFFFF);
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 3, -887.2399,-479.9101,826.8417))
+        {
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
 		else  if(IsPlayerInRangeOfPoint(playerid, 3, -893.2037,-490.6880,826.8417))
         {
-        	callcmd::ambilbox(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
 		else  if(IsPlayerInRangeOfPoint(playerid, 3, -898.6295,-500.8337,826.8417))
         {
-        	callcmd::ambilbox(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
-        else if(IsPlayerInRangeOfPoint(playerid, 3, -927.1517,-486.4165,826.8417))
+		else if(IsPlayerInRangeOfPoint(playerid, 3, -927.1517,-486.4165,826.8417))
         {
-        	callcmd::penyortiran(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
-        else if(IsPlayerInRangeOfPoint(playerid, 3, -920.0016,-468.0568,826.8417))
+		else if(IsPlayerInRangeOfPoint(playerid, 3, -920.0016,-468.0568,826.8417))
         {
-        	callcmd::mulaikerjabox1(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
 		else if(IsPlayerInRangeOfPoint(playerid, 3, 34.4547,1365.0729,9.1719))
         {
-        	callcmd::Daurulang(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
 		else if(IsPlayerInRangeOfPoint(playerid, 3, 34.9240,1379.4988,9.1719))
         {
-        	callcmd::Daurulang(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
 		else if(IsPlayerInRangeOfPoint(playerid, 3, 34.9276,1351.1335,9.1719))
         {
-        	callcmd::Daurulang(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
-	}
-	if(newkeys & KEY_WALK)
-	{
-	    if(IsPlayerInRangeOfPoint(playerid, 3, 2351.77,-653.31,128.05)) //creategun
+		else if(IsPlayerInRangeOfPoint(playerid, 3, -2043.9037,-2327.0183,30.6250))
         {
-        	callcmd::creategun(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
-	}
-	if(newkeys & KEY_WALK)
-	{
-	    if(IsPlayerInRangeOfPoint(playerid, 3, -2043.9037,-2327.0183,30.6250))
+		else if(IsPlayerInRangeOfPoint(playerid, 3, -2000.2443,-2453.1018,30.5975))
         {
-        	callcmd::buychainsaw(playerid, "");
-        }
-        else if(IsPlayerInRangeOfPoint(playerid, 3, -2000.2443,-2453.1018,30.5975))
-        {
-        	callcmd::tukangkayuzar(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 3, -2001.2886,-2465.2129,31.2360))
         {
-        	callcmd::tukangkayuzar(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
 		else if(IsPlayerInRangeOfPoint(playerid, 3, -1989.6028,-2464.2825,31.0153))
         {
-        	callcmd::tukangkayuzar(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 3, -1980.7644,-2486.7327,30.8771))
         {
-        	callcmd::tukangkayuzar(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
 		else if(IsPlayerInRangeOfPoint(playerid, 3, -1993.8621,-2494.8857,32.8715))
         {
-        	callcmd::tukangkayuzar(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 3, -2026.6808,-2480.3613,31.8755))
         {
-        	callcmd::tukangkayuzar(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
-	}
-	if(newkeys & KEY_WALK)
-	{
-	    if(IsPlayerInRangeOfPoint(playerid, 3, 1275.2433,-1551.5659,13.5769))
+		else if(IsPlayerInRangeOfPoint(playerid, 3, 1275.2433,-1551.5659,13.5769))
         {
-        	callcmd::robbank(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 3, 1985.1968,-2054.9270,13.5938))
         {
-        	callcmd::robbank(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 3, 1375.7587,-1893.4819,13.5901))
         {
-        	callcmd::robbank(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
+
 	}
 	if(newkeys & KEY_WALK)
 	{
 		if(IsPlayerInRangeOfPoint(playerid, 1, 354.502258,-2088.541748,7.835937))
         {
-        	callcmd::mancingdentot(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 1, 361.865936,-2088.551513,7.835937))
         {
-        	callcmd::mancingdentot(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 1, 367.337066,-2088.360107,7.835937))
         {
-        	callcmd::mancingdentot(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 1, 369.805786,-2088.505859,7.835937))
         {
-        	callcmd::mancingdentot(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 1, 375.105041,-2088.289306,7.835937))
         {
-        	callcmd::mancingdentot(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 1, 383.510070,-2088.362304,7.835937))
         {
-        	callcmd::mancingdentot(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 1, 390.969543,-2088.627685,7.835937))
         {
-        	callcmd::mancingdentot(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 1, 396.217071,-2088.449218,7.835937))
         {
-        	callcmd::mancingdentot(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 1, 398.711486,-2088.480468,7.835937))
         {
-        	callcmd::mancingdentot(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 1, 403.764190,-2088.797119,7.835937))
         {
-        	callcmd::mancingdentot(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
-	}
-	if(newkeys & KEY_WALK)
-	{
-	    if(IsPlayerInRangeOfPoint(playerid, 2, 2318.562744,-2070.840576,17.644752))//penjahit
+		else if(IsPlayerInRangeOfPoint(playerid, 2, 2318.562744,-2070.840576,17.644752))//penjahit
 		{
-		    if(pData[playerid][pJob] == 10)
-			ShowPlayerDialog(playerid, DIALOG_LOCKERPENJAHIT, DIALOG_STYLE_LIST, "Greenwich - Locker Penjahit", "Work Clothes\nYour Clothes", "Enter", "Cancel");
+		    SelectTextDraw(playerid, 0x00FFFFFF);
 		}
 		else if(IsPlayerInRangeOfPoint(playerid, 2, 2319.573730,-2080.727783,17.692657))
         {
-        	callcmd::buatkain(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
-        else if(IsPlayerInRangeOfPoint(playerid, 2, 2321.482421,-2082.888671,17.652400))
+		else if(IsPlayerInRangeOfPoint(playerid, 2, 2321.482421,-2082.888671,17.652400))
         {
-        	callcmd::buatkain(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 2, 2317.667236,-2082.262939,17.694538))
         {
-        	callcmd::buatkain(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
         else if(IsPlayerInRangeOfPoint(playerid, 2, 2319.653320,-2084.508544,17.652679))
         {
-        	callcmd::buatkain(playerid, "");
-        }
-        else if(IsPlayerInRangeOfPoint(playerid, 2, 1925.521972,170.046707,37.281250))
-        {
-        	callcmd::ambilwool(playerid, "");
-        }
-        else if(IsPlayerInRangeOfPoint(playerid, 2, 2313.817382,-2075.185546,17.644004))
-        {
-        	callcmd::buatbaju(playerid, "");
-        }
-        else if(IsPlayerInRangeOfPoint(playerid, 2, 1302.113769,-1876.048583,13.763982))
-		{
-            callcmd::jualpakaian(playerid, "");
+        	SelectTextDraw(playerid, 0x00FFFFFF);
         }
 	}
 	if(newkeys & KEY_WALK)
@@ -5885,7 +5864,58 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 			}
 		}
     }
+	//flymode
+	if(!fly[playerid])return 1;
+
+    new
+		k, ud, lr,
+        Float:hMult = 0.01,
+		Float:angle,
+		Float:forwd;
+
+	GetPlayerKeys(playerid, k, ud, lr);
+	GetPlayerFacingAngle(playerid, angle);
+
+	if(ud == KEY_UP)        forwd	= VELOCITY_NORM;
+	else if(ud == KEY_DOWN) forwd	=-VELOCITY_NORM;
+	
+	if(k & KEY_JUMP)forwd *= VELOCITY_MULT;
+	if(k & KEY_SPRINT)hMult = HEIGHT_GAIN * 10;
+	if(k & KEY_SPRINT && k & KEY_JUMP) hMult = HEIGHT_GAIN * 10;
+	if(k & KEY_CROUCH)hMult =-HEIGHT_GAIN;
+
+
+	if(k & KEY_FIRE)
+	{
+		if(lr == KEY_LEFT)		forwd = VELOCITY_NORM, angle	+= 90.0;
+		else if(lr == KEY_RIGHT)forwd = VELOCITY_NORM, angle	-= 90.0;
+	}
+	else
+	{
+		if(lr == KEY_LEFT)		angle	+= 6.0;
+		else if(lr == KEY_RIGHT)angle	-= 6.0;
+		SetPlayerFacingAngle(playerid, angle);
+	}
+	SetPlayerHealth(playerid, 1000.0);
+	SetPlayerVelocity(playerid, forwd*floatsin(-angle, degrees), forwd*floatcos(-angle, degrees), hMult);
+	SetPlayerHealth(playerid, 1000.0);
+	if(newkeys & KEY_JUMP && newkeys & 16 && usefly[playerid])
+	{
+	    if(fly[playerid])
+		{
+		    fly[playerid] = false;
+		    ClearAnimations(playerid);
+		}
+		else
+		{
+		    fly[playerid] = true;
+		    ClearAnimations(playerid);
+			ApplyAnimation(playerid, "PARACHUTE", "FALL_SKYDIVE", 4.0, 1, 0, 0, 0, 0, 1);
+		}
+	}
+	//flymode
 	return 1;
+
 }
 
 public OnPlayerStateChange(playerid, newstate, oldstate)
@@ -6550,6 +6580,177 @@ public OnPlayerUpdate(playerid)
 		format(str, sizeof(str), "~b~GPS:~w~ %s (%.2f meters)", PlayerInfo[playerid][pLocation], GetPlayerDistanceFromPoint(playerid, PlayerInfo[playerid][pWaypointPos][0], PlayerInfo[playerid][pWaypointPos][1], PlayerInfo[playerid][pWaypointPos][2]));
 		PlayerTextDrawSetString(playerid, PlayerInfo[playerid][pTextdraws][69], str);
 	}
+	//ox sytem start//
+	if(IsPlayerInRangeOfPoint(playerid, 3, 494.4636,1293.1964,10.0437))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 498.3599,1296.6460,10.0437))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 498.3147,1301.6930,10.0437))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 570.088989,1219.789794,11.711267))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 354.502258,-2088.541748,7.835937))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 361.865936,-2088.551513,7.835937))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 367.337066,-2088.360107,7.835937))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 369.805786,-2088.505859,7.835937))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 375.105041,-2088.289306,7.835937))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 383.510070,-2088.362304,7.835937))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 390.969543,-2088.627685,7.835937))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 396.217071,-2088.449218,7.835937))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 398.711486,-2088.480468,7.835937))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 403.764190,-2088.797119,7.835937))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 2351.77,-653.31,128.05)) //creategun
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -887.2399,-479.9101,826.8417))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -893.2037,-490.6880,826.8417))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -898.6295,-500.8337,826.8417))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -927.1517,-486.4165,826.8417))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -920.0016,-468.0568,826.8417))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 34.4547,1365.0729,9.1719))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 34.9240,1379.4988,9.1719))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 34.9276,1351.1335,9.1719))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -2043.9037,-2327.0183,30.6250))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -2000.2443,-2453.1018,30.5975))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -2001.2886,-2465.2129,31.2360))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -1989.6028,-2464.2825,31.0153))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -1980.7644,-2486.7327,30.8771))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -1993.8621,-2494.8857,32.8715))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -2026.6808,-2480.3613,31.8755))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 1275.2433,-1551.5659,13.5769))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 1985.1968,-2054.9270,13.5938))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 1375.7587,-1893.4819,13.5901))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 2318.562744,-2070.840576,17.644752))//penjahit
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 2321.482421,-2082.888671,17.652400))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 2317.667236,-2082.262939,17.694538))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 2319.653320,-2084.508544,17.652679))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 1925.521972,170.046707,37.281250))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 2313.817382,-2075.185546,17.644004))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 1302.113769,-1876.048583,13.763982))
+	{
+		callcmd::oxs(playerid, "");
+	}
+	else 
+	{
+		TextDrawHideForPlayer(playerid,ox_pasive[0]);
+		TextDrawHideForPlayer(playerid,ox_pasive[1]);
+		TextDrawHideForPlayer(playerid, ox_active[0]);
+		TextDrawHideForPlayer(playerid, ox_active[1]);
+		TextDrawHideForPlayer(playerid, ox_active[2]);
+		TextDrawHideForPlayer(playerid, ox_active[3]);
+	}
+	//ox system end//
 	//SAPD Tazer/Taser
 	UpdateTazer(playerid);
 	
@@ -7684,6 +7885,447 @@ stock SendDiscordMessage(channel, message[])
 
 public OnPlayerClickTextDraw(playerid, Text:clickedid)
 {
+	//ox system start//
+	if(clickedid == ox_pasive[1])
+    {
+	if(IsPlayerInRangeOfPoint(playerid, 3, 494.4636,1293.1964,10.0437))
+	{
+		new action[64];
+		format(action, sizeof(action), "Ambil Minyak");
+		TextDrawSetString(ox_active[3], action);
+		
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 498.3599,1296.6460,10.0437))
+	{
+		new action[64];
+		format(action, sizeof(action), "Ambil Minyak");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 498.3147,1301.6930,10.0437))
+	{
+		new action[64];
+		format(action, sizeof(action), "Ambil Minyak");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 570.088989,1219.789794,11.711267))
+	{
+		new action[64];
+		format(action, sizeof(action), "Olah Minyak");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 354.502258,-2088.541748,7.835937))
+	{
+		new action[64];
+		format(action, sizeof(action), "Memancing");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 361.865936,-2088.551513,7.835937))
+	{
+		new action[64];
+		format(action, sizeof(action), "Memancing");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 367.337066,-2088.360107,7.835937))
+	{
+		new action[64];
+		format(action, sizeof(action), "Memancing");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 369.805786,-2088.505859,7.835937))
+	{
+		new action[64];
+		format(action, sizeof(action), "Memancing");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 375.105041,-2088.289306,7.835937))
+	{
+		new action[64];
+		format(action, sizeof(action), "Memancing");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 383.510070,-2088.362304,7.835937))
+	{
+		new action[64];
+		format(action, sizeof(action), "Memancing");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 390.969543,-2088.627685,7.835937))
+	{
+		new action[64];
+		format(action, sizeof(action), "Memancing");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 396.217071,-2088.449218,7.835937))
+	{
+		new action[64];
+		format(action, sizeof(action), "Memancing");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 398.711486,-2088.480468,7.835937))
+	{
+		new action[64];
+		format(action, sizeof(action), "Memancing");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 1, 403.764190,-2088.797119,7.835937))
+	{
+		new action[64];
+		format(action, sizeof(action), "Memancing");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 2351.77,-653.31,128.05)) //creategun
+	{
+		new action[64];
+		format(action, sizeof(action), "Rakit Senjata");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -887.2399,-479.9101,826.8417))
+	{
+		new action[64];
+		format(action, sizeof(action), "Ambil Box");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -893.2037,-490.6880,826.8417))
+	{
+		new action[64];
+		format(action, sizeof(action), "Ambil Box");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -898.6295,-500.8337,826.8417))
+	{
+		new action[64];
+		format(action, sizeof(action), "Ambil Box");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -927.1517,-486.4165,826.8417))
+	{
+		new action[64];
+		format(action, sizeof(action), "Sortir Box");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -920.0016,-468.0568,826.8417))
+	{
+		new action[64];
+		format(action, sizeof(action), "Mulai Kerja Box");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 34.4547,1365.0729,9.1719))
+	{
+		new action[64];
+		format(action, sizeof(action), "Daur Ulang");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 34.9240,1379.4988,9.1719))
+	{
+		new action[64];
+		format(action, sizeof(action), "Daur Ulang");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 34.9276,1351.1335,9.1719))
+	{
+		new action[64];
+		format(action, sizeof(action), "Daur Ulang");
+		TextDrawSetString(ox_active[3], action);
+	}
+	if(IsPlayerInRangeOfPoint(playerid, 3, -2043.9037,-2327.0183,30.6250))
+	{
+		new action[64];
+		format(action, sizeof(action), "Beli Chainsaw");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -2000.2443,-2453.1018,30.5975))
+	{
+		new action[64];
+		format(action, sizeof(action), "Potong Kayu");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -2001.2886,-2465.2129,31.2360))
+	{
+		new action[64];
+		format(action, sizeof(action), "Potong Kayu");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -1989.6028,-2464.2825,31.0153))
+	{
+		new action[64];
+		format(action, sizeof(action), "Potong Kayu");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -1980.7644,-2486.7327,30.8771))
+	{
+		new action[64];
+		format(action, sizeof(action), "Potong Kayu");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -1993.8621,-2494.8857,32.8715))
+	{
+		new action[64];
+		format(action, sizeof(action), "Potong Kayu");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, -2026.6808,-2480.3613,31.8755))
+	{
+		new action[64];
+		format(action, sizeof(action), "Potong Kayu");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 1275.2433,-1551.5659,13.5769))
+	{
+		new action[64];
+		format(action, sizeof(action), "Rob Bank");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 1985.1968,-2054.9270,13.5938))
+	{
+		new action[64];
+		format(action, sizeof(action), "Rob Bank");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 3, 1375.7587,-1893.4819,13.5901))
+	{
+		new action[64];
+		format(action, sizeof(action), "Rob Bank");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 2318.562744,-2070.840576,17.644752))//penjahit
+	{
+		new action[64];
+		format(action, sizeof(action), "Loker Penjahit");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 2319.573730,-2080.727783,17.692657))
+	{
+		new action[64];
+		format(action, sizeof(action), "Buat Kain");
+		TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 2321.482421,-2082.888671,17.652400))
+	{
+	new action[64];
+	format(action, sizeof(action), "Buat Kain");
+	TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 2317.667236,-2082.262939,17.694538))
+	{
+	new action[64];
+	format(action, sizeof(action), "Buat Kain");
+	TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 2319.653320,-2084.508544,17.652679))
+	{
+	new action[64];
+	format(action, sizeof(action), "Buat Kain");
+	TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 1925.521972,170.046707,37.281250))
+	{
+	new action[64];
+	format(action, sizeof(action), "Ambil Wol");
+	TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 2313.817382,-2075.185546,17.644004))
+	{
+	new action[64];
+	format(action, sizeof(action), "Buat Baju");
+	TextDrawSetString(ox_active[3], action);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 2, 1302.113769,-1876.048583,13.763982))
+	{
+	new action[64];
+	format(action, sizeof(action), "Jual Pakaian");
+	TextDrawSetString(ox_active[3], action);
+	}
+	TextDrawHideForPlayer(playerid,ox_pasive[0]);
+	TextDrawHideForPlayer(playerid,ox_pasive[1]);
+	TextDrawShowForPlayer(playerid, ox_active[0]);
+	TextDrawShowForPlayer(playerid, ox_active[1]);
+	TextDrawShowForPlayer(playerid, ox_active[2]);
+	TextDrawShowForPlayer(playerid, ox_active[3]);
+	SelectTextDraw(playerid, 0x00FFFFFF);
+	return 1;
+    }
+	if(clickedid == ox_active[3])
+    {
+		TextDrawHideForPlayer(playerid,ox_active[0]);
+		TextDrawHideForPlayer(playerid,ox_active[1]);
+		TextDrawHideForPlayer(playerid,ox_active[2]);
+		TextDrawHideForPlayer(playerid,ox_active[3]);
+		if(IsPlayerInRangeOfPoint(playerid, 3, 494.4636,1293.1964,10.0437))
+        {
+        	callcmd::kerjaminyak1(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 3, 498.3599,1296.6460,10.0437))
+        {
+        	callcmd::kerjaminyak2(playerid, "");
+        }
+        else if(IsPlayerInRangeOfPoint(playerid, 3, 498.3147,1301.6930,10.0437))
+        {
+        	callcmd::kerjaminyak2(playerid, "");
+        }
+        else if(IsPlayerInRangeOfPoint(playerid, 3, 570.088989,1219.789794,11.711267))
+        {
+        	callcmd::saringminyak(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 1, 354.502258,-2088.541748,7.835937))
+		{
+			callcmd::mancingdentot(playerid, "");
+		}
+		else if(IsPlayerInRangeOfPoint(playerid, 1, 361.865936,-2088.551513,7.835937))
+		{
+			callcmd::mancingdentot(playerid, "");
+		}
+		else if(IsPlayerInRangeOfPoint(playerid, 1, 367.337066,-2088.360107,7.835937))
+		{
+			callcmd::mancingdentot(playerid, "");
+		}
+		else if(IsPlayerInRangeOfPoint(playerid, 1, 369.805786,-2088.505859,7.835937))
+		{
+			callcmd::mancingdentot(playerid, "");
+		}
+		else if(IsPlayerInRangeOfPoint(playerid, 1, 375.105041,-2088.289306,7.835937))
+		{
+			callcmd::mancingdentot(playerid, "");
+		}
+		else if(IsPlayerInRangeOfPoint(playerid, 1, 383.510070,-2088.362304,7.835937))
+		{
+			callcmd::mancingdentot(playerid, "");
+		}
+		else if(IsPlayerInRangeOfPoint(playerid, 1, 390.969543,-2088.627685,7.835937))
+		{
+			callcmd::mancingdentot(playerid, "");
+		}
+		else if(IsPlayerInRangeOfPoint(playerid, 1, 396.217071,-2088.449218,7.835937))
+		{
+			callcmd::mancingdentot(playerid, "");
+		}
+		else if(IsPlayerInRangeOfPoint(playerid, 1, 398.711486,-2088.480468,7.835937))
+		{
+			callcmd::mancingdentot(playerid, "");
+		}
+		else if(IsPlayerInRangeOfPoint(playerid, 1, 403.764190,-2088.797119,7.835937))
+		{
+			callcmd::mancingdentot(playerid, "");
+		}
+		else if(IsPlayerInRangeOfPoint(playerid, 3, 2351.77,-653.31,128.05)) //creategun
+		{
+			callcmd::creategun(playerid, "");
+		}
+		else if(IsPlayerInRangeOfPoint(playerid, 3, -887.2399,-479.9101,826.8417))
+        {
+        	callcmd::ambilbox(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 3, -893.2037,-490.6880,826.8417))
+        {
+        	callcmd::ambilbox(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 3, -898.6295,-500.8337,826.8417))
+        {
+        	callcmd::ambilbox(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 3, -927.1517,-486.4165,826.8417))
+        {
+        	callcmd::penyortiran(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 3, -920.0016,-468.0568,826.8417))
+        {
+        	callcmd::mulaikerjabox1(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 3, 34.4547,1365.0729,9.1719))
+        {
+        	callcmd::Daurulang(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 3, 34.9240,1379.4988,9.1719))
+        {
+        	callcmd::Daurulang(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 3, 34.9276,1351.1335,9.1719))
+        {
+        	callcmd::Daurulang(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 3, -2043.9037,-2327.0183,30.6250))
+        {
+        	callcmd::buychainsaw(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 3, -2000.2443,-2453.1018,30.5975))
+        {
+        	callcmd::tukangkayuzar(playerid, "");
+        }
+        else if(IsPlayerInRangeOfPoint(playerid, 3, -2001.2886,-2465.2129,31.2360))
+        {
+        	callcmd::tukangkayuzar(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 3, -1989.6028,-2464.2825,31.0153))
+        {
+        	callcmd::tukangkayuzar(playerid, "");
+        }
+        else if(IsPlayerInRangeOfPoint(playerid, 3, -1980.7644,-2486.7327,30.8771))
+        {
+        	callcmd::tukangkayuzar(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 3, -1993.8621,-2494.8857,32.8715))
+        {
+        	callcmd::tukangkayuzar(playerid, "");
+        }
+        else if(IsPlayerInRangeOfPoint(playerid, 3, -2026.6808,-2480.3613,31.8755))
+        {
+        	callcmd::tukangkayuzar(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 3, 1275.2433,-1551.5659,13.5769))
+        {
+        	callcmd::robbank(playerid, "");
+        }
+        else if(IsPlayerInRangeOfPoint(playerid, 3, 1985.1968,-2054.9270,13.5938))
+        {
+        	callcmd::robbank(playerid, "");
+        }
+        else if(IsPlayerInRangeOfPoint(playerid, 3, 1375.7587,-1893.4819,13.5901))
+        {
+        	callcmd::robbank(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 2, 2318.562744,-2070.840576,17.644752))//penjahit
+		{
+		    if(pData[playerid][pJob] == 10)
+			ShowPlayerDialog(playerid, DIALOG_LOCKERPENJAHIT, DIALOG_STYLE_LIST, "Greenwich - Locker Penjahit", "Work Clothes\nYour Clothes", "Enter", "Cancel");
+		}
+		else if(IsPlayerInRangeOfPoint(playerid, 2, 2319.573730,-2080.727783,17.692657))
+        {
+        	callcmd::buatkain(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 2, 2321.482421,-2082.888671,17.652400))
+        {
+        	callcmd::buatkain(playerid, "");
+        }
+        else if(IsPlayerInRangeOfPoint(playerid, 2, 2317.667236,-2082.262939,17.694538))
+        {
+        	callcmd::buatkain(playerid, "");
+        }
+        else if(IsPlayerInRangeOfPoint(playerid, 2, 2319.653320,-2084.508544,17.652679))
+        {
+        	callcmd::buatkain(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 2, 1925.521972,170.046707,37.281250))
+        {
+        	callcmd::ambilwool(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 2, 2313.817382,-2075.185546,17.644004))
+        {
+        	callcmd::buatbaju(playerid, "");
+        }
+		else if(IsPlayerInRangeOfPoint(playerid, 2, 1302.113769,-1876.048583,13.763982))
+		{
+            callcmd::jualpakaian(playerid, "");
+        }
+		CancelSelectTextDraw(playerid);
+		}
+	if(clickedid == ox_active[1])
+	{
+		TextDrawHideForPlayer(playerid,ox_active[0]);
+		TextDrawHideForPlayer(playerid,ox_active[1]);
+		TextDrawHideForPlayer(playerid,ox_active[2]);
+		TextDrawHideForPlayer(playerid,ox_active[3]);
+		CancelSelectTextDraw(playerid);
+	}
+	//ox system end//
     if(clickedid == PhoneCall1[23])
 	{
 	   	if(pData[playerid][pCallStage] != 2) return ErrorMsg(playerid, "Anda sedang tidak menelepon");
@@ -8746,18 +9388,22 @@ CMD:rusagerak(playerid, params[])
     MoveObject(rusa, -1934.440795,-2371.890136,30.826015, 3.5, -90.0000, 0.0000, 0.0000);
 	return 1;
 }
-CMD:oxp(playerid, params[])
+CMD:oxs(playerid, params[])
 {
-	PlayerTextDrawShow(playerid, OXtdpasive[playerid][0]);
-	PlayerTextDrawShow(playerid, OXtdpasive[playerid][1]);
+	TextDrawShowForPlayer(playerid, ox_pasive[0]);
+	TextDrawShowForPlayer(playerid, ox_pasive[1]);
 	return 1;
 }
-CMD:oxa(playerid, params[])
+CMD:oxhide(playerid, params[])
 {
-for(new i = 0; i < 7; i++)
-	{
-		PlayerTextDrawShow(playerid, OXtdactive[playerid][i]);
-	}
+	TextDrawHideForPlayer(playerid,ox_pasive[0]);
+	TextDrawHideForPlayer(playerid,ox_pasive[1]);
+	TextDrawHideForPlayer(playerid, ox_active[0]);
+	TextDrawHideForPlayer(playerid, ox_active[1]);
+	TextDrawHideForPlayer(playerid, ox_active[2]);
+	TextDrawHideForPlayer(playerid, ox_active[3]);
+	CancelSelectTextDraw(playerid);
+	return 1;
 }
 function OnPlayerGeledah(playerid, userid)
 {
