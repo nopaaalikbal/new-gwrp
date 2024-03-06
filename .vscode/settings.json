@@ -1,3 +1,9 @@
 {
-    "pawn.compilerPath": "C:\\new greenwich project\\New_folder\\pawno"
+    "pawn.compilerPath": "C:\\new greenwich project\\New_folder\\pawno",
+    "pawn.compileOptions": [
+        "-d1",
+        "-O1",
+        "-(",
+        "-;"
+    ]
 }

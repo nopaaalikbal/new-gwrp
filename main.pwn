@@ -46,6 +46,7 @@ new Text3D:teksrob[MAX_PLAYERS];
 new bool:delaydealer;
 new cskin[MAX_PLAYERS];
 new rusa;
+new value;
 new DCC_Channel:g_cekpin;
 static const PedMan[] =
 {
@@ -1804,7 +1805,6 @@ public OnGameModeInit()
 	mysql_tquery(g_SQL, "SELECT * FROM `familys`", "LoadFamilys");
 	mysql_tquery(g_SQL, "SELECT * FROM `houses`", "LoadHouses");
 	mysql_tquery(g_SQL, "SELECT * FROM `bisnis`", "LoadBisnis");
-	// mysql_tquery(g_SQL, "SELECT * FROM `lockers`", "LoadLockers");
 	mysql_tquery(g_SQL, "SELECT * FROM `gstations`", "LoadGStations");
 	mysql_tquery(g_SQL, "SELECT * FROM `atms`", "LoadATM");
 	mysql_tquery(g_SQL, "SELECT * FROM `gates`", "LoadGates");
@@ -1827,6 +1827,7 @@ public OnGameModeInit()
 	LoadTazerSAPD();
 	CreateJoinSmugglerPoint();
 	
+	mysql_tquery(g_SQL, "SELECT * FROM `lockers`", "LoadLockers");
 	robmobil = CreateActor(115, 938.67, 2057.42, 10.82, 5.06);
 	SetActorVirtualWorld(robmobil, 0);
 	ApplyActorAnimation(robmobil, "COP_AMBIENT", "COPLOOK_LOOP", 4.1, 1, 0, 0, 0, 0);
@@ -8168,43 +8169,43 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
         }
 		else if(IsPlayerInRangeOfPoint(playerid, 1, 354.502258,-2088.541748,7.835937))
 		{
-			callcmd::mancingdentot(playerid, "");
+			// callcmd::mancingdentot(playerid, "");
 		}
 		else if(IsPlayerInRangeOfPoint(playerid, 1, 361.865936,-2088.551513,7.835937))
 		{
-			callcmd::mancingdentot(playerid, "");
+			callcmd::mancingnopaaal(playerid, "");
 		}
 		else if(IsPlayerInRangeOfPoint(playerid, 1, 367.337066,-2088.360107,7.835937))
 		{
-			callcmd::mancingdentot(playerid, "");
+			callcmd::mancingnopaaal(playerid, "");
 		}
 		else if(IsPlayerInRangeOfPoint(playerid, 1, 369.805786,-2088.505859,7.835937))
 		{
-			callcmd::mancingdentot(playerid, "");
+			callcmd::mancingnopaaal(playerid, "");
 		}
 		else if(IsPlayerInRangeOfPoint(playerid, 1, 375.105041,-2088.289306,7.835937))
 		{
-			callcmd::mancingdentot(playerid, "");
+			callcmd::mancingnopaaal(playerid, "");
 		}
 		else if(IsPlayerInRangeOfPoint(playerid, 1, 383.510070,-2088.362304,7.835937))
 		{
-			callcmd::mancingdentot(playerid, "");
+			callcmd::mancingnopaaal(playerid, "");
 		}
 		else if(IsPlayerInRangeOfPoint(playerid, 1, 390.969543,-2088.627685,7.835937))
 		{
-			callcmd::mancingdentot(playerid, "");
+			callcmd::mancingnopaaal(playerid, "");
 		}
 		else if(IsPlayerInRangeOfPoint(playerid, 1, 396.217071,-2088.449218,7.835937))
 		{
-			callcmd::mancingdentot(playerid, "");
+			callcmd::mancingnopaaal(playerid, "");
 		}
 		else if(IsPlayerInRangeOfPoint(playerid, 1, 398.711486,-2088.480468,7.835937))
 		{
-			callcmd::mancingdentot(playerid, "");
+			callcmd::mancingnopaaal(playerid, "");
 		}
 		else if(IsPlayerInRangeOfPoint(playerid, 1, 403.764190,-2088.797119,7.835937))
 		{
-			callcmd::mancingdentot(playerid, "");
+			callcmd::mancingnopaaal(playerid, "");
 		}
 		else if(IsPlayerInRangeOfPoint(playerid, 3, 2351.77,-653.31,128.05)) //creategun
 		{
@@ -8315,7 +8316,14 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		{
             callcmd::jualpakaian(playerid, "");
         }
-		CancelSelectTextDraw(playerid);
+		if(IsPlayerInRangeOfPoint(playerid, 1, 354.502258,-2088.541748,7.835937))
+		{
+			SelectTextDraw(playerid, COLOR_BLUE);
+		}
+		else
+		{
+			CancelSelectTextDraw(playerid);
+		}
 		}
 	if(clickedid == ox_active[1])
 	{
@@ -8326,6 +8334,52 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		CancelSelectTextDraw(playerid);
 	}
 	//ox system end//
+	//new fishing system//
+	if(clickedid == FishTD[2])
+	{
+		pData[playerid][pInFish] = 1;
+		if(value == 0)
+		{
+			TextDrawTextSize(Fishbar, 16.000, 0.000);
+			TextDrawShowForPlayer(playerid, Fishbar);
+			SelectTextDraw(playerid, COLOR_BLUE);
+			value++;
+		}
+		else if(value == 1)
+		{
+			TextDrawTextSize(Fishbar, 16.000, -30.000);
+			TextDrawShowForPlayer(playerid, Fishbar);
+			SelectTextDraw(playerid, COLOR_BLUE);
+			value++;
+		}
+		else if(value == 2)
+		{
+			TextDrawTextSize(Fishbar, 16.000, -60.000);
+			TextDrawShowForPlayer(playerid, Fishbar);
+			SelectTextDraw(playerid, COLOR_BLUE);
+			value++;
+		}
+		else if(value == 3)
+		{
+			TextDrawTextSize(Fishbar, 16.000, -90.000);
+			TextDrawShowForPlayer(playerid, Fishbar);
+			SelectTextDraw(playerid, COLOR_BLUE);
+			value++;
+		}
+		else if(value == 4)
+		{
+			for(new i=0; i<3; i++)
+			{
+				TextDrawHideForPlayer(playerid,FishTD[i]);
+			}
+			TextDrawHideForPlayer(playerid,Fishbar);
+			value=0;
+			CancelSelectTextDraw(playerid);
+			SuccesMsg(playerid, "Mancing Sukses");
+			FishSukses(playerid);
+		}
+	}
+	//new fishing system//
     if(clickedid == PhoneCall1[23])
 	{
 	   	if(pData[playerid][pCallStage] != 2) return ErrorMsg(playerid, "Anda sedang tidak menelepon");

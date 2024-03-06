@@ -1,3 +1,172 @@
+FishSukses(playerid)
+{
+	if(IsPlayerConnected(playerid) && pData[playerid][pInFish] == 1)
+	{
+	    new rand = RandomEx(1,12);
+	    if(rand == 1)
+	    {
+	        Info(playerid, "Anda Mendapatkan Sebuah Sampah dan Langsung Membuangnya.");
+	        pData[playerid][pWorm] -= 1;
+	        pData[playerid][pInFish] = 0;
+	        pData[playerid][pUmpan] -= 1;
+	        TogglePlayerControllable(playerid, 1);
+	        RemovePlayerAttachedObject(playerid, 9);
+			callcmd::astop(playerid, "");
+			pData[playerid][pdelaymancing] = 0;
+			return 1;
+		}
+		else if(rand == 2)
+		{
+		    InfoMsg(playerid, "Anda Mendapatkan Ikan Makarel!");
+		    pData[playerid][pWorm] -= 1;
+	        pData[playerid][pInFish] = 0;
+            pData[playerid][pUmpan] -= 1;
+	        TogglePlayerControllable(playerid, 1);
+	        RemovePlayerAttachedObject(playerid, 9);
+			callcmd::astop(playerid, "");
+	        pData[playerid][pMakarel]++;
+			pData[playerid][pdelaymancing] = 0;
+	        ShowItemBox(playerid, "Ikan_Makarel", "Received_1x", 19630, 2);
+			return 1;
+		}
+		else if(rand == 3)
+		{
+		    InfoMsg(playerid, "Anda Mendapatkan Ikan Nemo!");
+		    pData[playerid][pWorm] -= 1;
+	        pData[playerid][pInFish] = 0;
+	        pData[playerid][pUmpan] -= 1;
+	        TogglePlayerControllable(playerid, 1);
+			pData[playerid][pdelaymancing] = 0;
+	        RemovePlayerAttachedObject(playerid, 9);
+			callcmd::astop(playerid, "");
+	        pData[playerid][pNemo]++;
+	        ShowItemBox(playerid, "Nemo", "Received_1x", 1599, 2);
+			return 1;
+		}
+		else if(rand == 4)
+		{
+		    InfoMsg(playerid, "Anda Mendapatkan Penyu");
+		    pData[playerid][pWorm] -= 1;
+	        pData[playerid][pInFish] = 0;
+	        pData[playerid][pUmpan] -= 1;
+	        TogglePlayerControllable(playerid, 1);
+	        RemovePlayerAttachedObject(playerid, 9);
+			callcmd::astop(playerid, "");
+	        pData[playerid][pPenyu]++;
+			pData[playerid][pdelaymancing] = 0;
+	        ShowItemBox(playerid, "Penyu", "Received_1x", 1609, 2);
+			return 1;
+		}
+		else if(rand == 5)
+		{
+		    Info(playerid, "Anda Mendapatkan Blue Fish!");
+		    pData[playerid][pWorm] -= 1;
+	        pData[playerid][pInFish] = 0;
+	        pData[playerid][pUmpan] -= 1;
+	        TogglePlayerControllable(playerid, 1);
+			pData[playerid][pdelaymancing] = 0;
+	        RemovePlayerAttachedObject(playerid, 9);
+			callcmd::astop(playerid, "");
+	        pData[playerid][pBlueFish]++;
+	        ShowItemBox(playerid, "Blue_Fish", "Received_1x", 1604, 2);
+			return 1;
+		}
+		else if(rand == 6)
+		{
+		    InfoMsg(playerid, "Anda Mendapatkan Ikan Makarel!");
+		    pData[playerid][pWorm] -= 1;
+	        pData[playerid][pInFish] = 0;
+	        pData[playerid][pUmpan] -= 1;
+	        TogglePlayerControllable(playerid, 1);
+	        RemovePlayerAttachedObject(playerid, 9);
+			callcmd::astop(playerid, "");
+			pData[playerid][pdelaymancing] = 0;
+	        pData[playerid][pMakarel]++;
+	        ShowItemBox(playerid, "Ikan_Makarel", "Received_1x", 19630, 2);
+			return 1;
+		}
+		else if(rand == 7)
+		{
+		    InfoMsg(playerid, "Anda Mendapatkan Ikan Makarel!");
+		    pData[playerid][pWorm] -= 1;
+	        pData[playerid][pInFish] = 0;
+	        pData[playerid][pUmpan] -= 1;
+	        TogglePlayerControllable(playerid, 1);
+	        RemovePlayerAttachedObject(playerid, 9);
+			callcmd::astop(playerid, "");
+			pData[playerid][pdelaymancing] = 0;
+	        pData[playerid][pMakarel]++;
+	        ShowItemBox(playerid, "Ikan_Makarel", "Received_1x", 19630, 2);
+			return 1;
+		}
+		else if(rand == 8)
+		{
+		    InfoMsg(playerid, "Anda Mendapatkan Ikan Makarel!");
+		    pData[playerid][pWorm] -= 1;
+	        pData[playerid][pInFish] = 0;
+	        pData[playerid][pUmpan] -= 1;
+	        TogglePlayerControllable(playerid, 1);
+	        RemovePlayerAttachedObject(playerid, 9);
+			callcmd::astop(playerid, "");
+	        pData[playerid][pMakarel]++;
+			pData[playerid][pdelaymancing] = 0;
+	        ShowItemBox(playerid, "Ikan_Makarel", "Received_1x", 19630, 2);
+			return 1;
+		}
+		else if(rand == 9)
+		{
+		    InfoMsg(playerid, "Anda Mendapatkan Ikan Makarel!");
+		    pData[playerid][pWorm] -= 1;
+	        pData[playerid][pInFish] = 0;
+	        pData[playerid][pUmpan] -= 1;
+	        TogglePlayerControllable(playerid, 1);
+	        RemovePlayerAttachedObject(playerid, 9);
+			callcmd::astop(playerid, "");
+	        pData[playerid][pMakarel]++;
+			pData[playerid][pdelaymancing] = 0;
+	        ShowItemBox(playerid, "Ikan_Makarel", "Received_1x", 19630, 2);
+			return 1;
+		}
+		else if(rand == 10)
+		{
+		    Info(playerid, "Anda Mendapatkan Kaos Kaki Busuk dan Langsung Membuangnya.");
+		    pData[playerid][pWorm] -= 1;
+	        pData[playerid][pInFish] = 0;
+	        pData[playerid][pUmpan] -= 1;
+	        TogglePlayerControllable(playerid, 1);
+	        RemovePlayerAttachedObject(playerid, 9);
+			callcmd::astop(playerid, "");
+			pData[playerid][pdelaymancing] = 0;
+		    return 1;
+		}
+		else if(rand == 11)
+		{
+		    Info(playerid, "Ikan Yang Sangat Besar! Tetapi Pancingan Anda Terputus dan Rusak.");
+		    pData[playerid][pWorm] -= 1;
+	        pData[playerid][pInFish] = 0;
+			pData[playerid][pPancingan]--;
+			pData[playerid][pUmpan] -= 1;
+	        TogglePlayerControllable(playerid, 1);
+	        RemovePlayerAttachedObject(playerid, 9);
+			callcmd::astop(playerid, "");
+			pData[playerid][pdelaymancing] = 0;
+		    return 1;
+		}
+		else
+		{
+		    Info(playerid, "Anda Mendapatkan Kaleng Rongsok dan Langsung Membuangnya.");
+	        pData[playerid][pInFish] = 0;
+	        pData[playerid][pUmpan] -= 1;
+	        TogglePlayerControllable(playerid, 1);
+	        RemovePlayerAttachedObject(playerid, 9);
+			callcmd::astop(playerid, "");
+			pData[playerid][pdelaymancing] = 0;
+		    return 1;
+		}
+	}
+	return 1;
+}
+
 function FishTime(playerid)
 {
 	if(IsPlayerConnected(playerid) && pData[playerid][pInFish] == 1)
@@ -154,7 +323,20 @@ function FishTime(playerid)
 	}
 	return 0;
 }
-
+CMD:mancingnopaaal(playerid,params[])
+{
+	for (new i = 0; i < 3;i++)
+	{
+		TextDrawShowForPlayer(playerid, FishTD[i]);
+	}
+	SendNearbyMessage(playerid, 20.0, COLOR_PURPLE, "** %s swings fishing rod and starts to wait for fish", ReturnName(playerid));
+	TogglePlayerControllable(playerid, 0);
+	ApplyAnimation(playerid,"SWORD","sword_block",50.0 ,0,1,0,1,1);
+	SetPlayerAttachedObject(playerid, 9,18632,6,0.079376,0.037070,0.007706,181.482910,0.000000,0.000000,1.000000,1.000000,1.000000);
+	TextDrawTextSize(Fishbar, 16.000, 0);
+	TextDrawShowForPlayer(playerid, Fishbar);
+	value = 0;
+}
 CMD:mancingdentot(playerid,params[])
 {
     if(pData[playerid][pPancingan] < 1)

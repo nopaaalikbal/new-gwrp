@@ -73,6 +73,11 @@ new Text: Spawnbaru[10];
 new PlayerText: SambutanTD[MAX_PLAYERS][2];
 new Text:BajuTD[19];
 
+//new fish system
+new Text: FishTD[3];
+new Text: Fishbar;
+//new fish system
+
 //phonecallsistem
 new Text: PhoneCall[30];
 new Text: PhoneCall1[28];
@@ -11145,6 +11150,48 @@ CreatePlayerTextDraws(playerid)
 
 CreateTextDraw()
 {
+	//new fishing system//
+	FishTD[0] = TextDrawCreate(377.000, 158.000, "LD_BUM:blkdot");
+	TextDrawTextSize(FishTD[0], 25.000, 104.000);
+	TextDrawAlignment(FishTD[0], 1);
+	TextDrawColor(FishTD[0], 1600183195);
+	TextDrawSetShadow(FishTD[0], 0);
+	TextDrawSetOutline(FishTD[0], 0);
+	TextDrawBackgroundColor(FishTD[0], 255);
+	TextDrawFont(FishTD[0], 4);
+	TextDrawSetProportional(FishTD[0], 1);
+
+	FishTD[1] = TextDrawCreate(366.000, 263.000, "LD_BEAT:chit");
+	TextDrawTextSize(FishTD[1], 46.000, 46.000);
+	TextDrawAlignment(FishTD[1], 1);
+	TextDrawColor(FishTD[1], 1616960411);
+	TextDrawSetShadow(FishTD[1], 0);
+	TextDrawSetOutline(FishTD[1], 0);
+	TextDrawBackgroundColor(FishTD[1], 255);
+	TextDrawFont(FishTD[1], 4);
+	TextDrawSetProportional(FishTD[1], 1);
+
+	FishTD[2] = TextDrawCreate(372.000, 271.000, "LD_BEAT:cring");
+	TextDrawTextSize(FishTD[2], 34.000, 31.000);
+	TextDrawAlignment(FishTD[2], 1);
+	TextDrawColor(FishTD[2], 852308735);
+	TextDrawSetShadow(FishTD[2], 0);
+	TextDrawSetOutline(FishTD[2], 0);
+	TextDrawBackgroundColor(FishTD[2], 255);
+	TextDrawFont(FishTD[2], 4);
+	TextDrawSetProportional(FishTD[2], 1);
+	TextDrawSetSelectable(FishTD[2], 1);
+
+	Fishbar = TextDrawCreate(381.000, 255.000, "LD_BUM:blkdot");
+	TextDrawTextSize(Fishbar, 16.000, -90.000);
+	TextDrawAlignment(Fishbar, 1);
+	TextDrawColor(Fishbar, 7471254);
+	TextDrawSetShadow(Fishbar, 0);
+	TextDrawSetOutline(Fishbar, 0);
+	TextDrawBackgroundColor(Fishbar, 255);
+	TextDrawFont(Fishbar, 4);
+	TextDrawSetProportional(Fishbar, 1);
+	//new fishing system//
 
 	MenuBaju[0] = TextDrawCreate(130.000, 199.000, "LD_BUM:blkdot");
 	TextDrawTextSize(MenuBaju[0], 72.000, 16.000);

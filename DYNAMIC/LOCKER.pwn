@@ -57,6 +57,7 @@ function LoadLockers()
 		}
 		printf("[Lockers]: %d Loaded.", rows);
 	}
+	return 1;
 }
 	
 Locker_Save(lid)
