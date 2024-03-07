@@ -1,0 +1,7 @@
+c:\new greenwich project\New_folder\gamemodes\DATA\DEFINE.pwn(83) : îøèáêà 017: íåîáúÿâëåííûé ñèìâîë "MAX_PLAYERS"
+c:\new greenwich project\New_folder\gamemodes\DATA\DEFINE.pwn(83) : èäåíòèôèêàòîð íå èñïîëüçóåòñÿ: "g_player_listitem"
+c:\new greenwich project\New_folder\gamemodes\DATA\DEFINE.pwn(83) -- (86) : îøèáêà 013: îòñóòñòâóåò òî÷êà âõîäà (íåò public-ôóíêöèé)
+Pawn compiler 3.2.3664	 	 	Copyright (c) 1997-2016, ITB CompuPhase
+
+
+Îøèáîê:2.
